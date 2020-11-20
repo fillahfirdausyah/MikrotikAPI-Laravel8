@@ -49,8 +49,8 @@
                             <tbody>
                               <tr>
                                 <td>{{ $loop->index + 1 }}</td>
-                                <td>{{ $u['name'] }}</td>
-                                <td>{{ $u['password'] }}</td>
+                                <td>Username : {{ $u['name'] }}</td>
+                                <td>Password : {{ $u['password'] }}</td>
                                 <td>
                                     <a href="{{ '/hotspot/user/remove/' }}{{ $u['.id'] }}" class="btn btn-danger">Hapus</a>
                                 </td>
