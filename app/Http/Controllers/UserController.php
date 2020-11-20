@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use Illuminate\Support\Str;
 use \RouterOS\Client;
 use \RouterOS\Query;
 
@@ -33,7 +34,10 @@ class UserController extends Controller
                     'user' => 'admin',
                     'pass' => 'olisamping'
                 ]);
-        $client->query(['/ip/hotspot/user/add',  '=name='.$request->username, '=password='.$request->password])->read();
+        $password = Str::random(5);
+        $username = Str::random(2) . "-lugaru";
+        // dd($username);
+        $client->query(['/ip/hotspot/user/add',  '=name='.$username, '=password='.$password])->read();
 
         return redirect('/user');
     }

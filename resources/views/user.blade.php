@@ -29,7 +29,10 @@
                     <div class="card">
                         <div class="card-header">
                           <h3 class="card-title">Data User</h3><br>
-                          <a href="{{ '/hotspot/user/add' }}" class="btn btn-primary mr-0">Tambah User</a>
+                          <form action="{{ '/hotspot/user/store' }}" method="POST">
+                            @csrf
+                            <button type="submit" class="btn btn-primary">Tambah User Baru</button>
+                          </form>  
                         </div>
                         <!-- /.card-header -->
                         <div class="card-body p-0">
