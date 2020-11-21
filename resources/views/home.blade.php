@@ -60,7 +60,7 @@
               <!-- small box -->
               <div class="small-box bg-warning">
                 <div class="inner">
-                  <h3>44<sup style="font-size: 20px">%</sup></h3>
+                  <h3>{{ $resource[0]['cpu-load'] }}<sup style="font-size: 20px">%</sup></h3>
   
                   <p>CPU Load</p>
                 </div>

@@ -13,14 +13,20 @@ class UserController extends Controller
 
     public function index() {
         $client = new Client([
-            'host' => '192.168.18.29',
+            'host' => '192.168.18.41',
             'user' => 'admin',
             'pass' => 'olisamping'
         ]);
         
         $data = $client->query('/ip/hotspot/user/print')->read();
         $user = collect($data)->except(['0'])->toArray(); 
-        return view('user', compact('user'));
+        $aktif = $client->query('/ip/hotspot/active/print')->read();
+        // if(count($aktif) == 0) {
+        //     $aktif = ['d'];
+        //     return view('user', compact('user', 'aktif'));
+        // }else {
+            return view('user', compact('user', 'aktif'));
+        // }
     }
 
     public function add() {
@@ -30,11 +36,12 @@ class UserController extends Controller
 
     public function store(Request $request) {
         $client = new Client([
-                    'host' => '192.168.18.29',
+                    'host' => '192.168.18.41',
                     'user' => 'admin',
                     'pass' => 'olisamping'
                 ]);
-                // dd($username);
+                // $test = $client->query('/ip/hotspot/active/print')->read();
+                // dd($test);
         for($i = 0; $i < 100; $i++) {
             $password = Str::random(5);
             $username = Str::random(2) . "-lugaru";
@@ -46,7 +53,7 @@ class UserController extends Controller
 
     public function destroy($id){
         $client = new Client([
-            'host' => '192.168.18.29',
+            'host' => '192.168.18.41',
             'user' => 'admin',
             'pass' => 'olisamping'
         ]);

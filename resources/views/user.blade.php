@@ -49,7 +49,14 @@
                             <tbody>
                               <tr>
                                 <td>{{ $loop->index + 1 }}</td>
-                                <td>Username : {{ $u['name'] }}</td>
+                                <td>
+                                  @if ($aktif[0]['user'] == $u['name'])
+                                  (Aktif) Username : {{ $u['name'] }}
+                                  @else
+                                  Username : {{ $u['name'] }}
+                                  @endif
+                                  
+                                </td>
                                 <td>Password : {{ $u['password'] }}</td>
                                 <td>
                                     <a href="{{ '/hotspot/user/remove/' }}{{ $u['.id'] }}" class="btn btn-danger">Hapus</a>
