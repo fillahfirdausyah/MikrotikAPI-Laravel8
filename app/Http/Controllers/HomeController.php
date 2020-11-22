@@ -10,7 +10,7 @@ class HomeController extends Controller
 {
     public function index() {
         $client = new Client([
-            'host' => '192.168.5.1',
+            'host' => '192.168.18.41',
             'user' => 'admin',
             'pass' => 'olisamping'
         ]);

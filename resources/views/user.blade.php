@@ -29,10 +29,17 @@
                     <div class="card">
                         <div class="card-header">
                           <h3 class="card-title">Data User</h3><br>
-                          <form action="{{ '/hotspot/user/store' }}" method="POST">
-                            @csrf
-                            <button type="submit" class="btn btn-primary">Tambah User Baru</button>
-                          </form>  
+                          <div class="row">
+                            <div class="col-6">
+                              <a href="{{ '/hotspot/user/add' }}" class="btn btn-primary">Tambah User</a>
+                            </div>
+                            <div class="col-6">
+                              <form action="{{ '/hotspot/user/quick' }}" method="POST">
+                                @csrf
+                                <button type="submit" class="btn btn-primary">Tambah User Cepat</button>
+                              </form>  
+                            </div>
+                          </div>
                         </div>
                         <!-- /.card-header -->
                         <div class="card-body p-0">

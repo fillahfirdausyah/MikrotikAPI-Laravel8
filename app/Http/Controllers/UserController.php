@@ -13,7 +13,7 @@ class UserController extends Controller
 
     public function index() {
         $client = new Client([
-            'host' => '192.168.5.1',
+            'host' => '192.168.18.41',
             'user' => 'admin',
             'pass' => 'olisamping'
         ]);
@@ -27,30 +27,49 @@ class UserController extends Controller
     }
 
     public function add() {
-
-        return view('addUser');
+        $client = new Client([
+            'host' => '192.168.18.41',
+            'user' => 'admin',
+            'pass' => 'olisamping'
+        ]);
+        $profile = $client->query('/ip/hotspot/user/profile/print')->read();
+        // dd($profle);
+        return view('addUser', compact('profile'));
     }
 
     public function store(Request $request) {
         $client = new Client([
-                    'host' => '192.168.5.1',
+                    'host' => '192.168.18.41',
                     'user' => 'admin',
                     'pass' => 'olisamping'
                 ]);
-                // $test = $client->query('/ip/hotspot/active/print')->read();
-                // dd($test);
-        // for($i = 0; $i < 100; $i++) {
-            $password = Str::random(5);
-            $username = Str::random(2) . "-lugaru";
-            $client->query(['/ip/hotspot/user/add',  '=name='.$username, '=password='.$password])->read();
-    //    }
+
+        $client->query([
+        '/ip/hotspot/user/add',  
+        '=name='.$request->username,
+        '=password='.$request->$password
+        ])->read();
        
+        return redirect('/user');
+    }
+
+    public function quick() {
+        $client = new Client([
+            'host' => '192.168.18.41',
+            'user' => 'admin',
+            'pass' => 'olisamping'
+        ]);
+
+        $password = Str::random(5);
+        $username = Str::random(2) . "-lugaru";
+        $client->query(['/ip/hotspot/user/add',  '=name='.$username, '=password='.$password])->read();
+
         return redirect('/user');
     }
 
     public function destroy($id){
         $client = new Client([
-            'host' => '192.168.5.1',
+            'host' => '192.168.18.41',
             'user' => 'admin',
             'pass' => 'olisamping'
         ]);
