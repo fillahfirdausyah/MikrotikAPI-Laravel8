@@ -52,9 +52,8 @@
                                 <td>
                                   @if ($aktif[0]['user'] == $u['name'])
                                   (Aktif) Username : {{ $u['name'] }}
-                                  @else
-                                  Username : {{ $u['name'] }}
                                   @endif
+                                  Username : {{ $u['name'] }}
                                   
                                 </td>
                                 <td>Password : {{ $u['password'] }}</td>
