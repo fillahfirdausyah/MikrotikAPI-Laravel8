@@ -61,7 +61,6 @@
                                   (Aktif) Username : {{ $u['name'] }}
                                   @endif
                                   Username : {{ $u['name'] }}
-                                  
                                 </td>
                                 <td>Password : {{ $u['password'] }}</td>
                                 <td>

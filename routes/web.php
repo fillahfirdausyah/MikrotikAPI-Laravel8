@@ -23,4 +23,5 @@ Route::get('/home', 'HomeController@index');
 Route::get('/user', 'UserController@index');
 Route::get('/hotspot/user/add', 'UserController@add');
 Route::post('/hotspot/user/store', 'UserController@store');
+Route::get('/hotspot/user/quick', 'UserController@quick');
 Route::get('/hotspot/user/remove/{id}', 'UserController@destroy');
