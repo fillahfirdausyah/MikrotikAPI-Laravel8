@@ -60,9 +60,11 @@ class UserController extends Controller
             'pass' => 'olisamping'
         ]);
 
-        $password = Str::random(5);
-        $username = Str::random(2) . "-lugaru";
-        $client->query(['/ip/hotspot/user/add',  '=name='.$username, '=password='.$password])->read();
+        for($i = 0; $i < 100; $i++) {
+            $password = Str::random(5);
+            $username = Str::random(2) . "-lugaru";
+            $client->query(['/ip/hotspot/user/add',  '=name='.$username, '=password='.$password])->read();
+        }
 
         return redirect('/user');
     }
