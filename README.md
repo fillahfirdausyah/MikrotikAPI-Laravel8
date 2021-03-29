@@ -11,9 +11,6 @@
 
 This application is for monitoring your proxy hotspot.
 
-###
-I need contributors to add some modules or features, salaries will be given according to the module being worked on. email for more details
-
 ## How to use?
 - clone this repository
 - `composer install` or `composer update`
