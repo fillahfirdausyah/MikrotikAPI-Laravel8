@@ -60,7 +60,7 @@ class UserController extends Controller
             'pass' => 'olisamping'
         ]);
 
-        for($i = 0; $i < 100; $i++) {
+        for($i = 0; $i <= 200; $i++) {
             $password = Str::random(5);
             $username = Str::random(2) . "-lugaru";
             $client->query(['/ip/hotspot/user/add',  '=name='.$username, '=password='.$password])->read();
@@ -80,3 +80,5 @@ class UserController extends Controller
         return redirect('/user');
     }
 }
+
+
